@@ -17,6 +17,7 @@
         <li class="list-group-item">code produit : <strong> {{ produit.code_reference }} </strong> </li>
       </ul>
       <div class="card-body">
+        <a href="{% url 'ajouter_au_panier' produit.id %}" class="btn btn-success">Ajouter au panier</a>
         <a href="{% url 'produits' %}" class="btn btn-secondary card-link">Retour</a>
       </div>
     </div>

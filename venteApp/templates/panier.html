@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Votre panier</h2>
+{% if articles %}
+<table>
+    <tr>
+        <th>Produit</th>
+        <th>Quantité</th>
+        <th>Prix</th>
+    </tr>
+    {% for article in articles %}
+    <tr>
+        <td>{{ article.produit.nom }}</td>
+        <td>{{ article.quantite }}</td>
+        <td>{{ article.prix }} €</td>
+    </tr>
+    {% endfor %}
+</table>
+<p>Total : {{ total }} €</p>
+<a href="{% url 'valider_panier' %}">Valider le panier</a>
+{% else %}
+<p>Votre panier est vide.</p>
+{% endif %}
+{% endblock %}

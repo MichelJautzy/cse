@@ -27,7 +27,10 @@
                     <td>{{ produit.prix }}</td>
                     <td>{{ produit.code_reference }}</td>
                     <td>{%if produit.image%}<img width="50px" src={{produit.image.url}} alt={{produit.nom}}>   {% endif %} </td>
-                    <td><a href="{{ produit.get_absolute_url }}">Détails</a></td>
+                    <td>
+                        <a href="{{ produit.get_absolute_url }}">Détails</a>
+                        <a href="{% url 'ajouter_au_panier' produit.id %}" class="btn btn-success">Ajouter au panier</a>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
