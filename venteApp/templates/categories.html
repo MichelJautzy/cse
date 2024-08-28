@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    .btn {
+        margin-top: 8px;
+        margin-bottom: 16px;
+    }
+</style>
+
+<body>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Catégorie</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for categorie in categories %}
+                <tr>
+                    <td>{{ categorie.nom }}</td>
+                    <td>{%if categorie.avatar %}<img width="50px" src={{categorie.avatar.url}} alt={{produit.nom}}>   {% endif %} </td>
+                    <td><a href="{{ categorie.get_absolute_url }}">Accéder</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+{% endblock %}
+

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    .btn {
+        margin-top: 8px;
+        margin-bottom: 16px;
+    }
+</style>
+
+<body>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Catégorie</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prix</th>
+                    <th scope="col">Référence</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for produit in produits %}
+                <tr>
+                    <td>{{ produit.sous_categorie.nom }}</td>
+                    <td>{{ produit.nom }}</td>
+                    <td>{{ produit.prix }}</td>
+                    <td>{{ produit.code_reference }}</td>
+                    <td>{%if produit.image%}<img width="50px" src={{produit.image.url}} alt={{produit.nom}}>   {% endif %} </td>
+                    <td><a href="{{ produit.get_absolute_url }}">Détails</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+{% endblock %}
+

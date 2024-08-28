@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    .btn {
+        margin-top: 8px;
+        margin-bottom: 16px;
+    }
+</style>
+
+<body>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Sous-catégorie</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for souscategorie in souscategories %}
+                <tr>
+                    <td>{{ souscategorie.nom }}</td>
+                    <td>{%if souscategorie.avatar%}<img width="50px" src={{souscategorie.avatar.url}} alt={{souscategorie.nom}}>   {% endif %} </td>
+                    <td><a href="{{ souscategorie.get_absolute_url }}">Détails</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+{% endblock %}
+

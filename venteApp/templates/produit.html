@@ -1,0 +1,25 @@
+
+{% extends 'base.html' %}
+{% block content %}
+  <body>
+    <div class="d-flex justify-content-center">
+      <div class="card mt-4" style="width: 10rem;">
+        {%if produit.image%}
+          <img class="card-img-top" src="{{ produit.image.url }}" alt="photo produit"> 
+        {% endif %}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ produit.nom }}</h5>
+        <p class="card-text">{{ produit.description }}.</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">prix  : <strong> {{ produit.prix }} </strong> </li>
+        <li class="list-group-item">code produit : <strong> {{ produit.code_reference }} </strong> </li>
+      </ul>
+      <div class="card-body">
+        <a href="{% url 'produits' %}" class="btn btn-secondary card-link">Retour</a>
+      </div>
+    </div>
+  </body>
+  
+{% endblock %}

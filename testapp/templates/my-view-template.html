@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {{elemtest}}
+
+    <ul class="list-group">
+        {% for obj in modeltest %}
+            <li class="list-group-item">{{ obj.mon_champ }}</li>
+            <li class="list-group-item">{{ obj.toto }}</li>
+        {% endfor %}
+    </ul>
+
+    <ul class="list-group">
+        {% for obj in modeltest2 %}
+            <li class="list-group-item">{{ obj.mon_champ }}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
